@@ -18,8 +18,8 @@ jobs:
           aws-region: ap-northeast-1
       - name: 리액트 빌드
         run: |
-          npm install
-          npm run build
+          yarn install
+          yarn run build
       - name: S3 업로드
         run: aws s3 sync build/ s3://eunhabucket2 --acl public-read
         env:
