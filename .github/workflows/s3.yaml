@@ -17,6 +17,13 @@ jobs:
           aws-secret-access-key: azxzdpSjn2kty915bYDsVq0jxmA48tMeey8B0U0m
           aws-region: ap-northeast-1
       - name: 리액트 빌드
-      - run: |
+        run: |
         npm install
         npm run build
+      - name: S3 업로드
+        run: aws s3 sync build/ s3://eunhabucket2 -- acl public-read
+        env:
+          AWS-ACCESS-KEY-ID: AKIAZ6BCJVVQBLVO3F5V
+          AWS-SECRET-ACCESS-KEY: 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
+
+          
